@@ -3,15 +3,18 @@ package com.hrms.testbase;
 import com.hrms.pages.AddEmployeePageElements;
 import com.hrms.pages.DashboardPageElements;
 import com.hrms.pages.LoginPageElements;
+import com.hrms.pages.PersonalDetailsPageElements;
 
 public class PageInitializer extends BaseClass {
 	public static LoginPageElements login;
-	public static	DashboardPageElements dashboard;
+	public static	DashboardPageElements dash;
 	public static AddEmployeePageElements addEmp;
+	public static PersonalDetailsPageElements persDetails;
 	public static void  initializePageObjects() {
 		 login=	new LoginPageElements();
-		 dashboard= new DashboardPageElements();
+		 dash= new DashboardPageElements();
 		 addEmp= new AddEmployeePageElements();
+		 persDetails= new PersonalDetailsPageElements();
 	}
 
 }

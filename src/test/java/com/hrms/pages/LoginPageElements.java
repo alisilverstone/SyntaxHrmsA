@@ -9,7 +9,7 @@ import com.hrms.testbase.BaseClass;
 public class LoginPageElements extends BaseClass {
 	
 	@FindBy(id = "txtUsername")
-	public WebElement userNametextBox;
+	public WebElement userNameTextBox;
 	
 	@FindBy(xpath = "//input[@id = 'txtPassword']")
 	public WebElement passwordTextBox;
@@ -27,7 +27,11 @@ public class LoginPageElements extends BaseClass {
 	public WebElement loginPanelHeading;
 	
 	
+	
 	public LoginPageElements() {
 		PageFactory.initElements(driver, this);
 	}
+	
+	
+	
 }

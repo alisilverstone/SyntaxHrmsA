@@ -1,6 +1,9 @@
 package com.hrms.testcases;
 
 import org.testng.annotations.Test;
+
+import java.sql.Date;
+
 import org.testng.AssertJUnit;
 import org.testng.annotations.DataProvider;
 import com.hrms.pages.DashboardPageElements;
@@ -12,17 +15,18 @@ public class LoginTests extends CommonMethods{
 	@Test(groups="smoke")
 	public void validLogin() {
 		
-		sendText(login.userNametextBox, ConfigsReader.getPropValue("username"));
+		sendText(login.userNameTextBox, ConfigsReader.getPropValue("username"));
 		sendText(login.passwordTextBox, ConfigsReader.getPropValue("password"));
+		waitForClickability(login.btnLogin);
 		click(login.btnLogin);
-		DashboardPageElements dashboard = new DashboardPageElements();
-		AssertJUnit.assertTrue(dashboard.welcome.isDisplayed());
+		waitForClickability(dash.welcome);
+		AssertJUnit.assertTrue(dash.welcome.isDisplayed());
 	}
 	
 	@Test(groups="regression", dataProvider="getData")
 	public void invalidLogin(String username,String password, String text) {
 		
-		sendText(login.userNametextBox, username);
+		sendText(login.userNameTextBox, username);
 		sendText(login.passwordTextBox, password);
 		click(login.btnLogin);
 		AssertJUnit.assertEquals(login.spanMessage.getText(), text);
@@ -39,5 +43,8 @@ public class LoginTests extends CommonMethods{
 	};
 	return data;
 	}
+	
+
+	
 
 }
